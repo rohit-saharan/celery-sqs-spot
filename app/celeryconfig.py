@@ -1,6 +1,6 @@
 import os
 
-broker_options = {
+CELERY_BROKER_TRANSPORT_OPTIONS = {
     'region':os.getenv('AWS_REGION','us-east-1'),
     'predefined_queues': {
         'default': {
@@ -8,3 +8,7 @@ broker_options = {
         }
     }
 }
+
+broker_url="sqs://"
+result_backend = 'rpc://'
+enable_utc = True

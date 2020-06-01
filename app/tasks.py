@@ -1,7 +1,7 @@
 from celery import Celery
-from .config import broker_options
 
-app = Celery('tasks', backend='rpc://', broker='sqs://', broker_transport_options = broker_options)
+app = Celery('tasks')
+app.config_from_object('celeryconfig')
 
 @app.task
 def add(x, y):
